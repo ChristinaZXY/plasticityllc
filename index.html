@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  PLASTICITY LLC — company website
+  ============================================================
+  BEFORE YOU PUBLISH, edit these (all are grouped for a quick find-and-replace):
+
+  1. DOMAIN / EMAIL: replace every occurrence of "plasticityllc.com"
+     with your real company domain. Your Apple enrollment WORK EMAIL
+     must be on this same domain.
+  2. CONTACT ADDRESS: the city/region line in the Contact section is a
+     placeholder — set it to match your D-U-N-S / D&B record, or remove it.
+  3. LINKS: the Privacy and Terms links point to /privacy and /terms —
+     point them at your existing pages.
+  4. PRODUCT LINK: the LittleWing card links to https://the-little-wing.com —
+     confirm that's correct.
+
+  Host on GitHub Pages (same as your other sites), point your company
+  domain at it via Cloudflare, and this satisfies Apple's "publicly
+  available website whose domain is associated with your organization."
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plasticity LLC — software for the growing years</title>
+<meta name="description" content="Plasticity LLC is an independent software studio building calm, thoughtful tools for the earliest years of parenting. Makers of LittleWing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F4F1;
+    --paper-raised:#F8FAF8;
+    --ink:#16302B;
+    --ink-soft:#3F544D;
+    --muted:#6C7C76;
+    --line:#D8DFD9;
+    --eucalyptus:#3E7C6A;
+    --eucalyptus-deep:#2E5D4F;
+    --honey:#D9A24A;
+    --focus:#3E7C6A;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  a{color:inherit}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  @media (max-width:640px){.wrap{padding:0 22px}}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(241,244,241,.82);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+  header.scrolled{border-bottom-color:var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .mark{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:600}
+  .mark svg{width:26px;height:26px;flex:none}
+  .mark span{font-size:18px;letter-spacing:-.01em}
+  nav{display:flex;gap:30px;align-items:center}
+  nav a{
+    text-decoration:none;color:var(--ink-soft);font-size:15px;font-weight:500;
+    position:relative;transition:color .2s ease;
+  }
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;
+    background:var(--eucalyptus);transition:width .25s ease;
+  }
+  nav a:hover{color:var(--ink)}
+  nav a:hover::after{width:100%}
+  .nav-contact{
+    padding:8px 16px;border:1px solid var(--line);border-radius:100px;
+    background:var(--paper-raised);
+  }
+  .nav-contact::after{display:none}
+  .nav-contact:hover{border-color:var(--eucalyptus);color:var(--eucalyptus-deep)}
+  @media (max-width:560px){nav .nav-link{display:none}}
+
+  a:focus-visible,button:focus-visible{
+    outline:2.5px solid var(--focus);outline-offset:3px;border-radius:3px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:96px 0 88px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  @media (max-width:860px){
+    .hero{padding:64px 0 56px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+  }
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--eucalyptus-deep);margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--honey)}
+
+  h1{
+    font-family:"Newsreader",Georgia,serif;
+    font-weight:400;
+    font-size:clamp(2.6rem,5.4vw,4.15rem);
+    line-height:1.04;
+    letter-spacing:-.02em;
+    color:var(--ink);
+  }
+  h1 em{font-style:italic;color:var(--eucalyptus-deep)}
+
+  .lede{
+    margin-top:26px;max-width:33ch;font-size:1.12rem;color:var(--ink-soft);
+  }
+  .hero-meta{
+    margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;
+    font-size:14px;color:var(--muted);
+  }
+  .hero-meta b{color:var(--ink);font-weight:600}
+
+  /* signature dendrite/wing figure */
+  .figure{position:relative;display:flex;justify-content:center;align-items:center}
+  .figure svg{width:100%;max-width:340px;height:auto;overflow:visible}
+  .dendrite{
+    fill:none;stroke:var(--eucalyptus);stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:1;stroke-dashoffset:1;
+    animation:grow 2.4s ease forwards;
+  }
+  .dendrite.d2{stroke:var(--eucalyptus-deep);animation-delay:.25s;opacity:.85}
+  .dendrite.d3{stroke:var(--honey);stroke-width:1.4;animation-delay:.5s;opacity:.9}
+  .node{fill:var(--eucalyptus-deep);opacity:0;animation:bloom .5s ease forwards}
+  @keyframes grow{to{stroke-dashoffset:0}}
+  @keyframes bloom{to{opacity:1}}
+  @media (prefers-reduced-motion: reduce){
+    .dendrite{stroke-dashoffset:0}
+    .node{opacity:1}
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding:80px 0}
+  .sec-head{max-width:60ch;margin-bottom:48px}
+  .sec-label{
+    font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--eucalyptus-deep);margin-bottom:16px;
+  }
+  h2{
+    font-family:"Newsreader",Georgia,serif;font-weight:400;
+    font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1.12;
+    letter-spacing:-.015em;color:var(--ink);
+  }
+  .sec-head p{margin-top:18px;font-size:1.08rem;color:var(--ink-soft)}
+
+  .divider{height:1px;background:var(--line);border:0}
+
+  /* ---------- product card ---------- */
+  .product{
+    display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;
+    background:var(--paper-raised);border:1px solid var(--line);border-radius:20px;
+    padding:34px 36px;transition:border-color .25s ease,transform .25s ease;
+    text-decoration:none;
+  }
+  .product:hover{border-color:var(--eucalyptus);transform:translateY(-2px)}
+  .product-logo{
+    width:62px;height:62px;border-radius:16px;flex:none;
+    background:linear-gradient(150deg,var(--eucalyptus),var(--eucalyptus-deep));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .product-logo svg{width:34px;height:34px}
+  .product h3{font-size:1.35rem;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+  .pill{
+    font-family:"Instrument Sans";font-size:11px;font-weight:600;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--eucalyptus-deep);
+    background:rgba(62,124,106,.12);padding:3px 10px;border-radius:100px;
+  }
+  .product p{margin-top:6px;color:var(--ink-soft);font-size:1rem;max-width:52ch}
+  .product .arrow{
+    font-size:15px;font-weight:600;color:var(--eucalyptus-deep);white-space:nowrap;
+    display:flex;align-items:center;gap:7px;
+  }
+  .product .arrow svg{width:16px;height:16px;transition:transform .25s ease}
+  .product:hover .arrow svg{transform:translateX(4px)}
+  @media (max-width:720px){
+    .product{grid-template-columns:auto 1fr;row-gap:16px;padding:28px}
+    .product .arrow{grid-column:1 / -1}
+  }
+
+  /* ---------- mission ---------- */
+  .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+  @media (max-width:800px){.mission-grid{grid-template-columns:1fr;gap:32px}}
+  .mission-body p+p{margin-top:18px}
+  .mission-body p{color:var(--ink-soft)}
+  .mission-aside{
+    border-left:2px solid var(--honey);padding-left:26px;align-self:start;
+  }
+  .mission-aside .q{
+    font-family:"Newsreader",Georgia,serif;font-style:italic;
+    font-size:1.5rem;line-height:1.35;color:var(--ink);
+  }
+  .mission-aside .a{margin-top:16px;font-size:14px;color:var(--muted)}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--ink);color:var(--paper);border-radius:26px;padding:64px}
+  @media (max-width:640px){.contact{padding:40px 30px;border-radius:20px}}
+  .contact .sec-label{color:var(--honey)}
+  .contact h2{color:var(--paper)}
+  .contact-rows{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media (max-width:600px){.contact-rows{grid-template-columns:1fr;gap:22px}}
+  .crow .k{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8FA69E;margin-bottom:7px}
+  .crow .v{font-size:1.15rem;font-family:"Newsreader",serif}
+  .crow a{color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(217,162,74,.5);padding-bottom:2px;transition:border-color .2s}
+  .crow a:hover{border-color:var(--honey)}
+
+  /* ---------- footer ---------- */
+  footer{padding:48px 0 60px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+    font-size:14px;color:var(--muted)}
+  .foot-links{display:flex;gap:24px}
+  .foot-links a{text-decoration:none;color:var(--ink-soft);transition:color .2s}
+  .foot-links a:hover{color:var(--eucalyptus-deep)}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap bar">
+    <a class="mark" href="#top" aria-label="Plasticity LLC home">
+      <!-- neural node mark -->
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 5v8M16 13 9 8M16 13l7-5M16 13v6l-6 5M16 19l6 5" stroke="#3E7C6A" stroke-width="1.7" stroke-linecap="round"/>
+        <circle cx="16" cy="4" r="2.4" fill="#2E5D4F"/>
+        <circle cx="8.5" cy="7.5" r="2" fill="#3E7C6A"/>
+        <circle cx="23.5" cy="7.5" r="2" fill="#3E7C6A"/>
+        <circle cx="16" cy="13" r="2.2" fill="#D9A24A"/>
+        <circle cx="9.5" cy="24.5" r="2" fill="#2E5D4F"/>
+        <circle cx="22.5" cy="24.5" r="2" fill="#2E5D4F"/>
+      </svg>
+      <span>Plasticity</span>
+    </a>
+    <nav>
+      <a class="nav-link" href="#build">What we build</a>
+      <a class="nav-link" href="#mission">Mission</a>
+      <a class="nav-contact" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Plasticity LLC · Software Studio</span>
+        <h1>The brain is never more <em>open to growth</em> than in the earliest years.</h1>
+        <p class="lede">We're an independent studio building calm, considered software for the people raising the youngest among us.</p>
+        <div class="hero-meta">
+          <span><b>Founded</b> · Independent &amp; self-funded</span>
+          <span><b>Focus</b> · Tools for early parenting</span>
+        </div>
+      </div>
+      <div class="figure" aria-hidden="true">
+        <!-- dendrite / wing signature: neural branches that also read as a wing -->
+        <svg viewBox="0 0 340 320">
+          <path class="dendrite" pathLength="1"
+            d="M170 300 C 170 250, 168 220, 150 195 C 132 170, 96 162, 74 138 C 52 114, 48 86, 40 58"/>
+          <path class="dendrite d2" pathLength="1"
+            d="M150 195 C 140 176, 118 172, 100 156 M74 138 C 64 120, 66 100, 58 82"/>
+          <path class="dendrite" pathLength="1"
+            d="M170 300 C 170 250, 172 220, 190 195 C 208 170, 244 162, 266 138 C 288 114, 292 86, 300 58"/>
+          <path class="dendrite d2" pathLength="1"
+            d="M190 195 C 200 176, 222 172, 240 156 M266 138 C 276 120, 274 100, 282 82"/>
+          <path class="dendrite d3" pathLength="1"
+            d="M170 300 C 170 240, 170 180, 170 120 C 170 96, 168 76, 170 52"/>
+          <path class="dendrite d3" pathLength="1"
+            d="M170 120 C 154 104, 142 96, 128 80 M170 120 C 186 104, 198 96, 212 80"/>
+          <circle class="node" cx="170" cy="300" r="4.5" style="animation-delay:1.9s"/>
+          <circle class="node" cx="40" cy="58" r="3.6" style="animation-delay:2.2s"/>
+          <circle class="node" cx="300" cy="58" r="3.6" style="animation-delay:2.3s"/>
+          <circle class="node" cx="170" cy="52" r="4" style="fill:#D9A24A;animation-delay:2.4s"/>
+          <circle class="node" cx="58" cy="82" r="3" style="animation-delay:2.5s"/>
+          <circle class="node" cx="282" cy="82" r="3" style="animation-delay:2.5s"/>
+          <circle class="node" cx="128" cy="80" r="2.8" style="fill:#D9A24A;animation-delay:2.6s"/>
+          <circle class="node" cx="212" cy="80" r="2.8" style="fill:#D9A24A;animation-delay:2.6s"/>
+          <circle class="node" cx="100" cy="156" r="2.8" style="animation-delay:2.6s"/>
+          <circle class="node" cx="240" cy="156" r="2.8" style="animation-delay:2.6s"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <section id="build">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-label">What we build</div>
+        <h2>Software with a steady hand, for a season that rarely offers one.</h2>
+        <p>Our work begins with LittleWing — and everything we make shares the same intent: to lighten the daily load of care without adding noise to it.</p>
+      </div>
+
+      <a class="product reveal" href="https://the-little-wing.com">
+        <div class="product-logo" aria-hidden="true">
+          <svg viewBox="0 0 34 34" fill="none">
+            <path d="M6 20c6-1 10-5 11-13 1 8 5 12 11 13-6 1-10 4-11 9-1-5-5-8-11-9z" fill="#F8FAF8"/>
+          </svg>
+        </div>
+        <div>
+          <h3>LittleWing <span class="pill">iOS · Live</span></h3>
+          <p>A gentle companion for the everyday questions and quiet milestones of raising a little one — with an AI assistant, milestone tracking, and stage-matched essentials.</p>
+        </div>
+        <div class="arrow">
+          Visit the-little-wing.com
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="mission" style="padding-top:24px">
+    <div class="wrap">
+      <div class="mission-grid">
+        <div class="mission-body reveal">
+          <div class="sec-label">Why "Plasticity"</div>
+          <h2 style="margin-bottom:22px">Named for the way growing minds are made.</h2>
+          <p>Plasticity is the brain's capacity to reshape itself in response to experience — and it is never greater than in the first years of life. That window is the reason we exist.</p>
+          <p>We build for the parents and caregivers holding that window open: software that informs without overwhelming, remembers without prying, and stays out of the way of the moments that matter.</p>
+          <p>We're small on purpose. It lets us care about the details that make a tool feel calm rather than clever.</p>
+        </div>
+        <div class="mission-aside reveal">
+          <p class="q">"Make the daily work of raising a child feel a little lighter, a little calmer, and a lot less lonely."</p>
+          <p class="a">— The idea behind everything we ship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact reveal">
+        <div class="sec-label">Get in touch</div>
+        <h2>We read every message.</h2>
+        <div class="contact-rows">
+          <div class="crow">
+            <div class="k">General &amp; press</div>
+            <div class="v"><a href="mailto:hello@plasticityllc.com">hello@plasticityllc.com</a></div>
+          </div>
+          <div class="crow">
+            <div class="k">Product support</div>
+            <div class="v"><a href="mailto:support@the-little-wing.com">support@the-little-wing.com</a></div>
+          </div>
+          <div class="crow">
+            <div class="k">Company</div>
+            <div class="v">Plasticity LLC</div>
+          </div>
+          <div class="crow">
+            <div class="k">Based in</div>
+            <div class="v">United States</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 Plasticity LLC. All rights reserved.</div>
+    <div class="foot-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:hello@plasticityllc.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // header hairline on scroll
+  const hdr = document.getElementById('hdr');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.14, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
