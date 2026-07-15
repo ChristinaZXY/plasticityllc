@@ -63,7 +63,7 @@
 
   a{color:inherit}
 
-  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
   @media (max-width:640px){.wrap{padding:0 22px}}
 
   /* ---------- header ---------- */
@@ -110,35 +110,36 @@
       radial-gradient(58% 52% at 80% 40%, rgba(62,124,106,.11), transparent 70%),
       radial-gradient(42% 40% at 15% 10%, rgba(217,162,74,.06), transparent 72%);
   }
-  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+  .hero>.wrap{position:relative;z-index:1;text-align:center}
+  .hero-grid{display:grid;grid-template-columns:1fr .8fr;gap:56px;align-items:center;margin-top:44px}
   @media (max-width:860px){
     .hero{padding:64px 0 56px}
     .hero-grid{grid-template-columns:1fr;gap:40px}
   }
 
   .eyebrow{
-    display:inline-flex;align-items:center;gap:9px;
-    font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:11px;
+    font-size:15px;font-weight:600;
     color:var(--eucalyptus-deep);margin-bottom:26px;
   }
-  .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--honey)}
 
   h1{
     font-family:"Newsreader",Georgia,serif;
     font-weight:400;
-    font-size:clamp(1.8rem,3.6vw,2.7rem);
+    font-size:clamp(2rem,4.2vw,3.05rem);
     line-height:1.16;
     letter-spacing:-.02em;
     color:var(--ink);
+    max-width:900px;margin:0 auto;text-wrap:balance;
   }
   h1 em{
     font-style:italic;color:var(--eucalyptus-deep);
-    font-size:clamp(2.7rem,5.9vw,4.5rem);
-    line-height:1.02;letter-spacing:-.025em;
+    letter-spacing:-.02em;
   }
+  .hero-sig{margin-top:18px;font-family:"Newsreader",Georgia,serif;font-style:italic;color:var(--muted);font-size:1.08rem}
 
   .lede{
-    margin-top:26px;max-width:34ch;font-size:1.14rem;color:var(--ink-soft);
+    margin-top:26px;font-size:1.14rem;color:var(--ink-soft);
   }
   .hero-attr{
     margin-top:18px;font-family:"Newsreader",Georgia,serif;font-style:italic;
@@ -147,6 +148,7 @@
 
   /* signature dendrite/wing figure */
   .figure{position:relative;display:flex;justify-content:center;align-items:center}
+  .hero .figure{margin-top:54px}
   .figure::before{
     content:"";position:absolute;width:74%;aspect-ratio:1;border-radius:50%;z-index:0;
     background:radial-gradient(circle, rgba(62,124,106,.16), transparent 66%);
@@ -172,7 +174,7 @@
 
   /* ---------- section shell ---------- */
   section{padding:80px 0}
-  .sec-head{max-width:60ch;margin-bottom:48px}
+  .sec-head{margin-bottom:48px}
   .sec-label{
     font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
     color:var(--eucalyptus-deep);margin-bottom:16px;
@@ -237,7 +239,7 @@
   .feature p{font-size:.95rem;color:var(--ink-soft);line-height:1.55}
 
   /* ---------- mission ---------- */
-  .mission-single{max-width:66ch}
+  .mission-single{max-width:none}
   .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
   @media (max-width:800px){.mission-grid{grid-template-columns:1fr;gap:32px}}
   .mission-body p+p{margin-top:18px}
@@ -304,13 +306,11 @@
 
 <main id="top">
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>Ability isn't fixed. With the right tools, <em>the mind keeps growing</em> at every age.</h1>
-        <p class="hero-attr">— the belief behind everything we build</p>
-        <p class="lede">Plasticity LLC builds software that strengthens human ability in the age of AI.</p>
-      </div>
-      <div class="figure" aria-hidden="true">
+    <div class="wrap">
+      <span class="eyebrow">At Plasticity, we build software that strengthens human ability in the age of AI.</span>
+      <h1>Ability isn't fixed. With the right tools, <em>the mind keeps growing</em> at every age.</h1>
+      <p class="hero-sig">— the belief behind everything we build</p>
+        <div class="figure" aria-hidden="true">
         <!-- dendrite / wing signature: neural branches that also read as a wing -->
         <svg viewBox="0 0 340 320">
           <path class="dendrite" pathLength="1"
